@@ -1,0 +1,15 @@
+https://openshift.redhat.com/app/console/application/5487d9b04382ec0fba000069-sample
+https://blog.openshift.com/how-to-use-amazon-rds-with-your-openshift-application/
+https://www.openshift.com/products/pricing/dedicated-node-services
+https://blog.openshift.com/dedicated-node-services-enterprise-users/
+https://www.openshift.com/products/pricing/dedicated-node-services
+https://access.redhat.com/support/offerings/openshift/sla
+https://blog.openshift.com/introducing-new-node-based-hosting-subscription-openshift-online/
+https://www.openshift.com/products/pricing/dedicated-node-services
+https://www.openshift.com/products/pricing/dedicated-node-services
+https://www.openshift.com/products/pricing/dedicated-node-services
+https://www.openshift.com/products/pricing/dedicated-node-services
+https://www.openshift.com/products/pricing/dedicated-node-services
+https://access.redhat.com/support/offerings/openshift/sla
+
+http://www.redhat.com/en/files/resources/en-osen-integrating-openshift-identity-management-rhel.pdf

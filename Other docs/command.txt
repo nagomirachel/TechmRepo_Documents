@@ -1,0 +1,12 @@
+>Icacls C:\Users\pn00334894\.ssh\id_rsa /grant everyone:f
+
+
+env grep | mysql
+
+127.1.245.2
+un: adminQYy75QH
+pwd:FXhks85jY4fX
+
+
+admin
+wnpLHuAnwdsc

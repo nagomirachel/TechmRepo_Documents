@@ -1,0 +1,124 @@
+#searchUserBtn {
+    margin-left:5px;
+    margin-top: -8px;
+}
+
+#addUserBtn {
+    margin-left:5px;
+    margin-top: -8px;
+}
+
+/* Bootstrap overrides */
+.navbar-inner {
+    background-image: linear-gradient(to top, #ffffff, #006699);
+    height:65px;
+}
+
+.fade-in-out {
+  transition: 1s linear all;  
+  opacity: 1;
+}
+
+.fade-in-out.ng-hide {
+  opacity: 0;
+}
+
+
+/* Fix for Bootstrap 3 with Angular UI Bootstrap */
+
+.modal { 
+	display: block;
+}
+
+/* Custom dialog/modal headers */
+
+.dialog-header-confirm { background-color: #333333; }
+
+.dialog-header-confirm span, .dialog-header-confirm h4 { color: #ffffff; }
+
+/* Ease Display */
+
+.welcome{
+    font-size:10pt;
+    font-family: verdana;
+    color: #0000CC;
+    font-weight: bold;
+    text-align: right;
+    margin-top:-20px;
+    position: relative
+}
+
+.signoff{
+    font-size:8pt;
+    font-family: verdana;
+    color: #000000;
+    font-weight: bold;
+    text-align: right;
+    margin-top:20px;
+   
+}
+
+.app-name {
+    font-size:11pt;
+    font-family: verdana;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: left
+
+}
+
+.source-container{
+    width: 90%;
+    margin-left: 15px;
+}
+
+.footer-class{
+    background-color:#B8B894;
+    color:#663300;
+    text-align: center;
+    font-size:8pt;
+    font-family: verdana;
+    font-weight: bold;
+    width:100%;
+    position: fixed;
+    bottom: 0
+}
+.nav-tabs{
+    background-color:#fafafa;
+    background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+
+    background-repeat: repeat-x;
+    border: 1px solid #d4d4d4;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    zoom: 1;
+    -webkit-box-shadow: 0 0px 4px rgba(0, 0, 0, 0.065);
+    -moz-box-shadow: 0 0px 4px rgba(0, 0, 0, 0.065);
+    
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.065);
+}
+.tab-content{
+    background-color:#303136;
+    color:#fff;
+    padding:5px
+}
+.nav-tabs > li > a{
+  border: medium none;
+    font-weight: bold;
+}
+.nav-tabs > li > a:hover{
+  background-color: #0099FF !important;
+    border: medium none;
+    border-radius: 0;
+    color:#fff;
+    font-weight: bold;
+} 
+
+.alert {
+    width:auto;
+}
+
+.custom-table th {
+    background-color:#fafafa;
+}

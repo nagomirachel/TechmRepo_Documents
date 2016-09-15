@@ -1,0 +1,107 @@
+<div class="container">      
+<div class="alert alert-success fade-in-out" ng-show="successMsg.length > 0">
+        <button type="button" class="close" data-ng-click="successMsg=''">×</button> <strong>Success!</strong> {{successMsg}} </div>
+    
+    <div class="alert alert-danger fade-in-out" ng-show="errorMsg.length > 0">
+        <button type="button" class="close" data-ng-click="errorMsg=''">×</button> <strong>Failure!</strong> {{errorMsg}} </div>
+
+    <br/>
+    
+<!--    =========================================Validation============================
+<form name="myForm">
+  <input type="text" 
+        name="documentId"
+        ng-model="documentId" 
+        document-available 
+        required
+        ng-model-options="{ updateOn: 'blur' }">
+ 
+  <div ng-if="myForm.$error.documentExists">document exists already</div>
+</form>
+     
+     =========================================Validation============================ -->
+        <form name="documentForm" class="form-inline">
+
+             <div class="form-group">
+     <label for="documentCtl.document.documentId">Document Id:</label>
+               
+                <input data-ng-model="documentCtl.document.documentId" type="text" placeholder="Document Id" class="form-control" required> 
+                
+            </div>
+            
+    <div class="form-group">
+     <label for="documentCtl.document.documentName">Document Name:</label>
+               
+                <input data-ng-model="documentCtl.document.documentName" type="text" placeholder="Document Name" class="form-control">
+            </div>
+            
+             <div class="form-group">
+                <label for="documentCtl.document.printId">Printer Id:</label>
+              
+                <input data-ng-model="documentCtl.document.printId" type="text" placeholder="Printer Id" class="form-control">
+            </div>
+              <div class="form-group">
+                            <button id="searchDocumentBtn" class="btn btn-primary" type="button" 
+                    data-ng-disabled="!documentCtl.document.documentId && !documentCtl.document.documentName && !documentCtl.document.printId" data-ng-click="documentCtl.searchDocumentCtrl()"> Search </button> 
+            </div>
+            <div class="form-group">
+                <button id="addDocumentBtn" class="btn btn-primary" type="button" 
+                   data-ng-disabled="!documentCtl.document.documentId && !documentCtl.document.documentName && !documentCtl.document.printId" data-ng-click="documentCtl.addDocument()">Add</button>
+            </div>
+            
+    </form>
+       
+    <br /><br />
+
+  
+       
+<div class="table-responsive">
+    <table id="documentListTable" class="table table-hover table-striped table-condensed table-bordered custom-table">
+    <thead>
+        <tr>
+            <th data-ng-click="setOrder('documentId')">Document Id</th>
+            <th data-ng-click="setOrder('documentName')">Document Name</th>
+            <th data-ng-click="setOrder('printId')">Printer Id</th>
+             <th>Add</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-hide="documents_searchlist.length > 0" class="error">
+            <td colspan="7">
+                <div class="text-center"><strong>No documents found</strong></div>
+            </td>
+        </tr>
+        <!-- filter -->
+        <!--<tr data-ng-repeat="userData in userCtl.users | filter:{cdsId:userCtl.cdsId, firstName:userCtl.firstName, lastName:userCtl.lastName}"> -->
+            <tr data-ng-repeat="documentData in documents_searchlist">
+                <td>
+               {{ documentData.documentId }}
+            </td>
+            <td>
+                <div ng-hide="editingDocumentData[documentData.documentId]"> {{ documentData.documentName }}</div>
+                <div ng-show="editingDocumentData[documentData.documentId]"><input type="text" ng-model="documentData.documentName" />              </div>
+            </td>
+            <td>
+                <div ng-hide="editingDocumentData[documentData.documentId]"> {{ documentData.printId }}</div>
+                <div ng-show="editingDocumentData[documentData.documentId]"><input type="text" ng-model="documentData.printId" /></div>
+            </td>
+            <td>
+                <a href="#" class="cardBody btn-link" data-ng-click="addDocument(documentData.documentId)"><img width="20px" height="20px" src="Content/images/add1.jpg"/></a>
+            </td>
+            <td>
+                <a ng-hide="editingDocumentData[documentData.documentId]" href="#" class="cardBody btn-link" data-ng-click="documentCtl.modifyDocumentCtl(documentData)"><img width="20px" height="20px" src="Content/images/edit.jpg"/></a>
+                <button ng-show="editingDocumentData[documentData.documentId]" ng-click="documentCtl.updateDocumentCtl(documentData)">Update</button>
+            </td>
+            <td>
+                <a href="#" class="cardBody btn-link" data-ng-click="documentCtl.deleteDocumentCtl(documentData)"><img width="20px" height="20px" src="Content/images/del1.jpg"/></a>
+            </td>
+                             
+        </tr>
+    </tbody>
+</table>
+            
+        </div>
+
+</div>

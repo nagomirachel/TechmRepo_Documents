@@ -1,0 +1,67 @@
+<nav class="navbar navbar-default" role="navigation">
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" 
+         data-target="#example-navbar-collapse">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+   </div>
+   <div class="collapse navbar-collapse" id="example-navbar-collapse">
+     
+       <ul class="nav navbar-nav">
+           
+    <li ng-class="{ active:tab.isSet(1) }">
+      <a href ng-click="tab.setTab(1)">User</a>
+    </li>
+    <li ng-class="{ active:tab.isSet(2) }">
+      <a href ng-click="tab.setTab(2)">Document</a>
+    </li>
+    <li ng-class="{ active:tab.isSet(3) }">
+      <a href ng-click="tab.setTab(3)">Document group</a>
+    </li>
+           
+           
+      </ul>
+       
+   </div>
+</nav>
+
+         <!--  User Tab's Content -->
+  <user ng-show="tab.isSet(1)"></user>
+  <!--  Documents Tab's Content 
+  <div document ng-show="tab.isSet(2)"></div>
+
+  <!--  User group's Content  
+  <user-group ng-show="tab.isSet(3)"></user-group> -->
+  <document ng-show="tab.isSet(2)"></document>
+
+  <!--  User group's Content  
+  <user-group ng-show="tab.isSet(3)"></user-group> -->
+  <!-- <grp ng-show="tab.isSet(3)"></grp> -->
+
+<!--
+<section>
+  <ul class="nav nav-tabs">
+    <li ng-class="{ active:tab.isSet(1) }">
+      <a href ng-click="tab.setTab(1)">User</a>
+    </li>
+    <li ng-class="{ active:tab.isSet(2) }">
+      <a href ng-click="tab.setTab(2)">Document</a>
+    </li>
+    <li ng-class="{ active:tab.isSet(3) }">
+      <a href ng-click="tab.setTab(3)">Document group</a>
+    </li>
+  </ul>
+
+  <!--  User Tab's Content 
+  <user ng-show="tab.isSet(1)"></user>
+  <!--  Documents Tab's Content 
+  <div document ng-show="tab.isSet(2)"></div>
+
+  <!--  User group's Content  
+  <user-group ng-show="tab.isSet(3)"></user-group>
+
+</section> -->

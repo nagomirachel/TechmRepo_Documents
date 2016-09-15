@@ -1,0 +1,72 @@
+https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6/html/Administration_and_Configuration_Guide/JdbcStringBasedCacheStore_Sample_Configuration.html
+
+
+Red Hat JBoss Data Grid Intro:
+=====================
+
+Red Hat JBoss D ata Grid is a distributed in-memory data grid, which provides the following
+capabilities:
+
+Schemaless key-value store – JBoss D ata Grid is a NoSQL database that provides the flexibility
+to store different objects without a fixed data model.
+
+Grid-based data storage – JBoss D ata Grid is designed to easily replicate data across multiple
+nodes.
+
+Elastic scaling – Adding and removing nodes is simple and non-disruptive.
+
+Multiple access protocols – It is easy to access the data grid using REST, Memcached, Hot Rod,
+or simple map-like API.
+
+
+
+
+Red Hat JBoss Dat a Grid Usage Modes
+=========================
+
+Red Hat JBoss D ata Grid offers two usage modes:
+Remote Client-Server mode
+Library mode
+
+
+
+Remote Client-Server Mode
+============================
+
+Remote Client-Server mode provides a managed, distributed, and clusterable data grid server.
+Applications can remotely access the data grid server using Ho t Ro d , Memcach ed or REST client
+APIs.
+
+All Red Hat JBoss D ata Grid operations in Remote Client-Server mode are non-transactional. As a
+result, a number of features cannot be performed when running JBoss D ata Grid in Remote Client-
+Server mode.
+
+
+
+
+Cache Stores and Cache Loaders
+===============================================
+
+1.File System Based Cache Stores
+=================================
+JBoss Data Grid includes one file system based cache store: 
+
+The FileCacheStore is a simple, file system based implementation.
+
+Due to its limitations, FileCacheStore can be used in a limited capacity in production environments. It should not be used on shared file system (such as NFS and Windows shares) due to a lack of proper file locking, resulting in data corruption. Furthermore, file systems are not inherently transactional, resulting in file writing failures during the commit phase if the cache is used in a transactional context.
+The FileCacheStore is ideal for testing usage and is not suited to use in highly concurrent, transactional or stress-based environments.
+
+2.Remote Cache Stores
+10.4.1. About Remote Cache Stores
+The RemoteCacheStore is an implementation of the cache loader that stores data in a remote JBoss Data Grid cluster. The RemoteCacheStore uses the Hot Rod client-server architecture to communicate with the remote cluster.
+For remote cache stores, Hot Rod provides load balancing, fault tolerance and the ability to fine tune the connection between the RemoteCacheStore and the cluster.
+
+3.JDBC Based Cache Stores:
+
+JBoss Data Grid offers several cache stores for use with common data storage formats. JDBC based cache stores are used with any cache store that exposes a JDBC driver. JBoss Data Grid offers the following JDBC based cache stores depending on the key to be persisted:
+	JdbcBinaryCacheStore.
+	JdbcStringBasedCacheStore.
+	JdbcMixedCacheStore.
+
+
+

@@ -1,0 +1,95 @@
+<div class="container">      
+<div class="alert alert-success fade-in-out" ng-show="successMsg.length > 0">
+        <button type="button" class="close" data-ng-click="successMsg=''">×</button> <strong>Success!</strong> {{successMsg}} </div>
+    
+    <div class="alert alert-danger fade-in-out" ng-show="errorMsg.length > 0">
+        <button type="button" class="close" data-ng-click="errorMsg=''">×</button> <strong>Failure!</strong> {{errorMsg}} </div>
+
+    <br/>
+
+     
+        <form name="userForm" class="form-inline">
+  <div class="form-group">
+    <label for="userCtl.user.cdsId">CDS ID: </label>
+           <input type="text" data-ng-model="userCtl.user.cdsId" placeholder="CDS ID" class="form-control"></input>
+            <!--<autocomplete ng-model="userCtl.user.cdsId" attr-placeholder="type to search movies..." click-activation="true" data="movies" on-type="doSomething" on-select="doSomethingElse" class="form-control"></autocomplete> -->
+
+            </div>
+    <div class="form-group">
+     <label for="userCtl.user.firstName">First Name:</label>
+               
+                <input data-ng-model="userCtl.user.firstName" type="text" placeholder="First Name" class="form-control">
+            </div>
+            
+             <div class="form-group">
+                <label for="userCtl.user.lastName">Last Name:</label>
+              
+                <input data-ng-model="userCtl.user.lastName" type="text" placeholder="Last Name" class="form-control">
+            </div>
+              <div class="form-group">
+                            <button id="searchUserBtn" class="btn btn-primary" type="button" 
+                    data-ng-disabled="!userCtl.user.firstName && !userCtl.user.lastName && !userCtl.user.cdsId" 
+                                    data-ng-click="userCtl.searchUserCtrl()">Search</button> 
+            </div>
+            <div class="form-group">
+                <button id="addUserBtn" class="btn btn-primary" type="button" 
+                    data-ng-disabled="!userCtl.user.firstName || !userCtl.user.lastName || !userCtl.user.cdsId" 
+                                    data-ng-click="userCtl.addUserCtrl()">Add</button>
+            </div>
+            
+    </form>
+       
+    <br /><br />
+
+  
+       
+<div class="table-responsive">
+    <table id="userListTable" class="table table-hover table-striped table-condensed table-bordered custom-table">
+    <thead>
+        <tr>
+            <th data-ng-click="setOrder('cdsId')">CDS ID</th>
+            <th data-ng-click="setOrder('firstName')">First Name</th>
+            <th data-ng-click="setOrder('lastName')">Last Name</th>
+            <th>Add</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-hide="users_searchlist.length > 0" class="error">
+            <td colspan="7">
+                <div class="text-center"><strong>No Users found</strong></div>
+            </td>
+        </tr>
+        <!-- filter -->
+        <!--<tr data-ng-repeat="userData in userCtl.users | filter:{cdsId:userCtl.cdsId, firstName:userCtl.firstName, lastName:userCtl.lastName}"> -->
+            <tr data-ng-repeat="userData in users_searchlist">
+            <td>
+                {{ userData.cdsId }}
+            </td>
+            <td>
+                <div ng-hide="editingUserData[userData.cdsId]"> {{ userData.firstName }}</div>
+                <div ng-show="editingUserData[userData.cdsId]"><input type="text" ng-model="userData.firstName" /></div>
+            </td>
+            <td>
+                <div ng-hide="editingUserData[userData.cdsId]"> {{ userData.lastName }}</div>
+                <div ng-show="editingUserData[userData.cdsId]"><input type="text" ng-model="userData.lastName" /></div>
+            </td>
+            <td>
+                <a href="#" class="cardBody btn-link" data-ng-click="addUser(userData.cdsId)"><img width="20px" height="20px" src="Content/images/add1.jpg"/></a>
+            </td>
+            <td>
+                <a ng-hide="editingUserData[userData.cdsId]" href="#" class="cardBody btn-link" data-ng-click="userCtl.modifyUserCtl(userData)"><img width="20px" height="20px" src="Content/images/edit.jpg"/></a>
+                <button ng-show="editingUserData[userData.cdsId]" ng-click="userCtl.updateUserCtl(userData)">Update</button>
+            </td>
+            <td>
+                <a href="#" class="cardBody btn-link" data-ng-click="userCtl.deleteUserCtl(userData)"><img width="20px" height="20px" src="Content/images/del1.jpg"/></a>
+            </td>
+                             
+        </tr>
+    </tbody>
+</table>
+            
+        </div>
+
+</div>
